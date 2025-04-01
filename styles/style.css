@@ -4,3 +4,8 @@ header {
     justify-content: center;
     padding: 8px;
 }
+
+header img {
+    width: auto;
+    height: 75px;
+}
