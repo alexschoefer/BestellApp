@@ -1,5 +1,5 @@
-.header-container {
-    background-color: rgb(228, 127, 45);
+header {
+    background-color: rgb(237, 142, 63);
     display: flex;
     justify-content: center;
     padding: 8px;
@@ -7,5 +7,22 @@
 
 header img {
     width: auto;
-    height: 75px;
+    height: 60px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.main-content {
+    width: calc(100% - 300px);
+    padding-bottom: 50px;
+}
+
+#title-img {
+    width: 100%;
+    object-fit: cover;
+    height: 480px;
 }
