@@ -1,3 +1,17 @@
+// Menu Categories
+
+let menuCategories = {
+    "appetizers": "Vorspeisen",
+    "salads": "Salate",
+    "wraps": "Wraps",
+    "pizza": "Pizza",
+    "pasta": "Pasta",
+    "burger": "Burger",
+    "desserts": "Dessert"
+}
+
+// Collection Dishes
+
 let menuDishes = {
     "appetizers":[
         {
@@ -156,14 +170,4 @@ let menuDishes = {
             "amount": 0
         }
     ]
-}
-
-let dishCategories = {
-    "appetizers": "Vorspeisen",
-    "salads": "Salate",
-    "wraps": "Wraps",
-    "pizza": "Pizza",
-    "pasta": "Pasta",
-    "burger": "Burger",
-    "desserts": "Dessert"
 }

@@ -2,7 +2,7 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(170, 169, 169);
+    background-color: rgb(224, 213, 179);
     flex-grow: 1;
 }
 
@@ -11,4 +11,22 @@
     margin-top: 24px;
     position: sticky;
     top: 24px;
+}
+
+#basket-starter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+#basket-img {
+    width: 32px;
+    height: 32px;
+}
+
+.basket h2 {
+    text-align: center;
+    margin-bottom: 32px;
 }
