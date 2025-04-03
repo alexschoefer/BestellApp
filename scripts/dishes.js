@@ -65,7 +65,6 @@ let menuDishes = {
             "amount": 0
         }
     ],
-    "wraps":[],
     "pizza":[
         {
             "name": "Pizza Funghi",

@@ -1,38 +1,85 @@
 header {
-    background-color: rgb(237, 142, 63);
-    display: flex;
-    justify-content: center;
-    padding: 8px;
+  background-color: rgb(237, 142, 63);
+  display: flex;
+  justify-content: center;
+  padding: 8px;
 }
 
 header img {
-    width: auto;
-    height: 60px;
+  width: auto;
+  height: 60px;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
 .main-content {
-    width: calc(100% - 300px);
-    padding-bottom: 50px;
+  width: calc(100% - 300px);
+  padding-bottom: 50px;
+}
+
+.restaurant-content-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0px 40px;
+}
+
+.restaurant-content-container h2 {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #title-img {
-    width: 100%;
-    object-fit: cover;
-    height: 480px;
+  width: 100%;
+  object-fit: cover;
+  height: 480px;
+}
+
+.menu-categories {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  border: 1px solid rgb(213, 210, 210);
+  border-radius: 24px;
+  padding: 4px;
+}
+
+.menu-categories a {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.menu-categories a:hover {
+    color:rgb(237, 142, 63);
+    cursor: pointer;
+  }
+
+.restaurant-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #rating-img {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 #arrow-categories-img {
-   width: 32px;
-   height: 32px;
+  padding: 2px;
+  width: 32px;
+  height: 32px;
 }
+
+#dishes-img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  height: 150px;
+}
+

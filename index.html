@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="./styles/basket.css">
 
+    <script src="./scripts/dishes.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./script.js"></script>
+
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <div class="header-container">
             <a href="index.html">
@@ -28,17 +32,61 @@
         <!-- menu-content -->
         <section class="main-content">
             <img id="title-img" src="./assets/img/pizza-3010062_1920.jpg" alt="title-img">
-            <div>
-                <h1>Mein Restaurant</h1>
-            </div>
-            <div>
-                <span><img id="rating-img" src="./assets/icons/star.png" alt=""> (4,2 von 5 Sternen)</span>
+
+            <div class="restaurant-content-container">
+                <h1>Cucina & Burger</h1>
+
+                <div class="restaurant-rating">
+                    <span><img id="rating-img" src="./assets/icons/star.png" alt=""> (Bewertung 4,2 von 5
+                        Sternen)</span>
+                </div>
+
+                <!-- menu-categories -->
+                <div class="menu-categories">
+                    <img id="arrow-categories-img" src="./assets/icons/arrowhead.png" alt="">
+                    <a href="">Vorspeisen</a>
+                    <a href="">Salate</a>
+                    <a href="">Pizza</a>
+                    <a href="">Pasta</a>
+                    <a href="">Burger</a>
+                    <a href="">Dessert</a>
+                </div>
+
+                <!-- dishes-content -->
+                <div class="dishes-content">
+                    <div>
+                        <h2>Vorspeisen</h2>
+                        <img id="dishes-img" src="./assets/img/gourmet-5619887_1280.jpg" alt="">
+                        <div id="appetizers-dishes"></div>
+                    </div>
+
+                    <div>
+                        <h2>Salate</h2>
+                        <img id="dishes-img" src="./assets/img/meal-1033210_1280.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <h2>Pizza</h2>
+                        <img id="dishes-img" src="./assets/img/big-2530142_1280.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <h2>Pasta</h2>
+                        <img id="dishes-img" src="./assets/img/noodles-7241213_1280.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <h2>Burger</h2>
+                        <img id="dishes-img" src="./assets/img/hamburger-4103070_1280.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <h2>Dessert</h2>
+                        <img id="dishes-img" src="./assets/img/nougat-3078581_1280.jpg" alt="">
+                    </div>
+                </div>
             </div>
 
-            <!-- menu-categories -->
-            <div>
-                <img id="arrow-categories-img"src="./assets/icons/arrowhead.png" alt="">
-            </div>
 
         </section>
 
@@ -47,7 +95,7 @@
             <div class="basket">
                 <h2>Warenkorb</h2>
                 <div id="basket-starter">
-                    <img id="basket-img"src="./assets/img/basket.png" alt="">
+                    <img id="basket-img" src="./assets/img/basket.png" alt="">
                     <h2>Fülle deinen Warenkorb</h2>
                     <span>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
                 </div>
@@ -65,3 +113,4 @@
 </body>
 
 </html>
+
