@@ -30,3 +30,24 @@
     text-align: center;
     margin-bottom: 32px;
 }
+
+.pick-up-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.pick-up-options img {
+    height: 16px;
+    width: 16px;
+    margin: 2px;
+}
+
+.pick-up-options button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    padding: 8px;
+}

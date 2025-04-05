@@ -83,3 +83,45 @@ main {
   height: 150px;
 }
 
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dish-information {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.single-dish-selection {
+    margin: 10px;
+    border: 1px solid rgb(213, 210, 210);
+    padding: 10px;
+    border-radius: 24px;
+}
+
+.single-dish-selection:hover {
+    background-color: rgb(239, 199, 165);
+}
+
+.dish-price {
+    color: rgb(237, 142, 63);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dishes-content h2 {
+    font-size: 28px;
+}
+
+#add-to-Basket {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
