@@ -125,3 +125,11 @@ main {
     cursor: pointer;
 }
 
+.line {
+    margin-top: 10px;
+    height: 2px;
+    border: 1px solid black;
+}
+
+
+

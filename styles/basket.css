@@ -1,53 +1,96 @@
 .basket-container {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(224, 213, 179);
-    flex-grow: 1;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(224, 213, 179);
+  flex-grow: 1;
 }
 
 .basket {
-    width: 100%;
-    margin-top: 24px;
-    position: sticky;
-    top: 24px;
+  width: 100%;
+  margin-top: 24px;
+  position: sticky;
+  top: 24px;
 }
 
 #basket-starter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
 }
 
 #basket-img {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .basket h2 {
-    text-align: center;
-    margin-bottom: 32px;
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 .pick-up-options {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
 }
 
 .pick-up-options img {
-    height: 16px;
-    width: 16px;
-    margin: 2px;
+  height: 16px;
+  width: 16px;
+  margin: 2px;
 }
 
 .pick-up-options button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 24px;
-    padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  padding: 10px;
+}
+
+#increaseButtonBasket,
+#trashDecreaseButtonBasket {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+#basket_amount {
+  font-size: 20px;
+}
+
+#selected_amount_basket {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 10px 15px 10px;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(174, 171, 171);
+  border: 2px solid rgb(174, 171, 171);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#selected-dishes-basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.757);
+  border: 2px solid black;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.selected-dishes-basket-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
 }

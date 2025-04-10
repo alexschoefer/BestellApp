@@ -3,7 +3,6 @@
 let menuCategories = {
     "appetizers": "Vorspeisen",
     "salads": "Salate",
-    "wraps": "Wraps",
     "pizza": "Pizza",
     "pasta": "Pasta",
     "burger": "Burger",
