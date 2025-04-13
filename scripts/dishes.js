@@ -1,14 +1,3 @@
-// Menu Categories
-
-let menuCategories = {
-    "appetizers": "Vorspeisen",
-    "salads": "Salate",
-    "pizza": "Pizza",
-    "pasta": "Pasta",
-    "burger": "Burger",
-    "desserts": "Dessert"
-}
-
 // Collection Dishes
 
 let menuDishes = {
