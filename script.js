@@ -2,8 +2,6 @@ let basket = [];
 
 let delivery = true;
 
-
-
 function init() {
     renderAppetizers();
     renderSalads();
@@ -111,7 +109,7 @@ function removeDishFromBasket(indexDishes, menuCategories, indexBasket) {
 
 function increaseOrderQuantity(indexDishes, menuCategories) {
     menuDishes[menuCategories][indexDishes].amount++;
-        showTotalPrice();
+    showTotalPrice();
     renderBasket();
 
 }
@@ -128,7 +126,7 @@ function calucationTotalOrder(indexDishes, menuCategories) {
 
 function showTotalPrice(deliveryCosts) {
     let totalPriceRef = document.getElementById('total');
-    if(deliveryCosts >= 0){
+    if (deliveryCosts >= 0) {
         totalPriceRef.innerHTML = (subtotal + deliveryCosts).toFixed(2).replace(".", ",").concat(" €");
     }
 }
@@ -152,17 +150,21 @@ function getDeliveryCosts() {
 }
 
 function changeFromDeliveryToPickUp() {
-    delivery = false;
-    document.getElementById('pickup').classList.add('delivery-pickup-seletion')
-    document.getElementById('delivery').classList.remove('delivery-pickup-seletion');
-    getDeliveryCosts();
+    if (basket.length > 0) {
+        delivery = false;
+        document.getElementById('pickup').classList.add('delivery-pickup-seletion')
+        document.getElementById('delivery').classList.remove('delivery-pickup-seletion');
+        getDeliveryCosts();
+    }
 }
 
 function changeFromPickUpToDelivery() {
-    delivery = true;
-    document.getElementById('pickup').classList.remove('delivery-pickup-seletion')
-    document.getElementById('delivery').classList.add('delivery-pickup-seletion');
-    getDeliveryCosts();
+    if (basket.length > 0) {
+        delivery = true;
+        document.getElementById('pickup').classList.remove('delivery-pickup-seletion')
+        document.getElementById('delivery').classList.add('delivery-pickup-seletion');
+        getDeliveryCosts();
+    }
 }
 
 function completeOrder() {
@@ -171,5 +173,19 @@ function completeOrder() {
     document.getElementById('order-confirmation').classList.remove('d_none');
     document.getElementById('dishes-selected').classList.add('d_none');
     document.getElementById('total-order-overview').classList.add('d_none');
-    
+
+}
+
+function openBasketOverlay() {
+    document.getElementById('basket-container').style.display = 'block';
+    document.getElementById('basket-container-overlay-btn').style.display = 'none';
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+}
+
+function closeBasketOverlay() {
+    document.getElementById('basket-container').style.display = 'none';
+    document.getElementById('basket-container-overlay-btn').style.display = 'block';
+    document.getElementById('main-content').style.display = 'block';
+    document.getElementById('footer').style.display = 'block';
 }

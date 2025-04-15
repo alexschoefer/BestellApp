@@ -1,6 +1,7 @@
 // Collection Dishes
 
 let menuDishes = {
+    //menu-Categorie
     "appetizers":[
         {
             "name": "Bruschetta",
@@ -27,6 +28,7 @@ let menuDishes = {
             "amount": 0
         },
     ],
+    //menu-Categorie
     "salads": [
         {
             "name": "Insalata Mista",
@@ -53,6 +55,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
+    //menu-Categorie
     "pizza":[
         {
             "name": "Pizza Funghi",
@@ -79,6 +82,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
+    //menu-Categorie
     "pasta":[
         {
             "name": "Spaghetti Napoli",
@@ -105,6 +109,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
+    //menu-Categorie
     "burger": [
         {
             "name": "Cheeseburger",
@@ -131,6 +136,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
+    //menu-Categorie
     "desserts": [
         {
             "name": "Warmes Schokotörtchen",

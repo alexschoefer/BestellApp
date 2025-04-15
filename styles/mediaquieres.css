@@ -1,0 +1,117 @@
+@media(max-width: 1600px) {
+  main aside.basket-container {
+    width: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 1000px) {
+  main section.main-content {
+    width: 100%;
+  }
+
+  .basket-container-overlay-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    height: 32px;
+    margin-right: 20px;
+    cursor: pointer;
+   
+  }
+
+  main aside.basket-container {
+  display: none;
+  }
+
+  .basket-container-overlay button {
+    display: flex;
+  }
+}
+
+@media (max-width: 750px) {
+  #title-img {
+    height: 320px;
+  }
+
+  .basket-container-overlay-btn {
+    width: calc(100vw - 100px);
+  }
+
+  #arrow-categories-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .dishes-content h2 {
+    font-size: 20px;
+  }
+
+  #add-to-Basket {
+    width: 28px;
+    height: 28px;
+  }
+
+  .menu-categories {
+    width: calc(100vw - 90px);
+    margin: 20px auto;
+    padding: 8px;
+  }
+
+  .menu-categories a {
+    margin: 8px;
+    padding: 2px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 570px) {
+.header-container {
+    padding: 0px;
+}
+
+  .menu-categories a {
+    font-size: 14px;
+  }
+
+  .dish-information {
+    gap: 10px;
+  }
+
+  #dishes-img {
+    height: 120px;
+  }
+
+  .single-dish-selection {
+    margin: 5px;
+    padding: 8px;
+  }
+
+  .single-dish-selection h3,
+  p {
+    font-size: 14px;
+  }
+
+  .dish-price {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 495px) {
+
+
+  .menu-categories a {
+    margin: 4px;
+    padding: 1px;
+    font-size: 16px;
+  }
+
+  .menu-categories {
+    flex-direction: column;
+    margin: 0;
+} 
+}

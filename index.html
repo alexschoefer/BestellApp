@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="./styles/mediaquieres.css">
 
     <script src="./scripts/dishes.js"></script>
     <script src="./scripts/template.js"></script>
@@ -30,7 +31,7 @@
     <!-- main-content -->
     <main>
         <!-- menu-content -->
-        <section class="main-content">
+        <section class="main-content" id="main-content">
             <img id="title-img" src="./assets/img/pizza-3010062_1920.jpg" alt="title-img">
 
             <div class="restaurant-content-container">
@@ -89,19 +90,24 @@
                         <img id="dishes-img" src="./assets/img/nougat-3078581_1280.jpg" alt="">
                         <div id="dessert-dishes"></div>
                     </div>
+                    <div class="basket-container-overlay">
+                        <button id="basket-container-overlay-btn" onclick="openBasketOverlay()" class="basket-container-overlay-btn" >Dein Warenkorb</button>
+                    </div>
                 </div>
             </div>
-
 
         </section>
 
         <!-- basket-content -->
-        <aside class="basket-container">
+        <aside class="basket-container" id="basket-container">
             <div class="basket">
+                <div class="basket-container-overlay-close-btn">
+                    <img onclick="closeBasketOverlay()" src="./assets/icons/close.png" alt="closeButton">
+                </div>
                 <h2>Warenkorb</h2>
                 <div id="order-confirmation" class="order-confirmation d_none">
                     <h3>Bestellung erfolgreich abgeschlossen!</h3>
-                    <span>Wir schicken Dir in Kürze eine Bestätigung</span>
+                    <span>Wir schicken Dir in Kürze eine Bestätigung.</span>
                 </div>
 
                 <div id="delivery-pick-up-options" class="delivery-pick-up-options">
@@ -140,9 +146,6 @@
             </div>
         </aside>
 
-
-
-
     </main>
 
     <footer id="footer">
@@ -151,3 +154,4 @@
 </body>
 
 </html>
+
