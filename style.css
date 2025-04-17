@@ -83,7 +83,7 @@ main {
   height: 150px;
 }
 
-.space-between {
+.single-dish {
     display: flex;
     justify-content: space-between;
     gap: 5px;

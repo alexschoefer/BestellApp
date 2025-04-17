@@ -7,12 +7,15 @@
     <title>BestellApp</title>
 
     <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+      
+    <!-- styles -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="./styles/basket.css">
-    <link rel="stylesheet" href="./styles/mediaquieres.css">
+    <link rel="stylesheet" href="./styles/mediaqueries.css">
 
+ 
     <script src="./scripts/dishes.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
@@ -57,41 +60,48 @@
                 <div class="dishes-content">
                     <div id="appetizers">
                         <h2>Vorspeisen</h2>
-                        <img id="dishes-img" src="./assets/img/gourmet-5619887_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/gourmet-5619887_1280.jpg" alt="appetizers">
+                        <!-- single-dishes-content Template-function -->
                         <div id="appetizers-dishes"></div>
                     </div>
 
                     <div id="salads">
                         <h2>Salate</h2>
-                        <img id="dishes-img" src="./assets/img/meal-1033210_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/meal-1033210_1280.jpg" alt="salads">
+                        <!-- single-dishes-content Template-function -->
                         <div id="salads-dishes"></div>
                     </div>
 
                     <div id="pizza">
                         <h2>Pizza</h2>
-                        <img id="dishes-img" src="./assets/img/big-2530142_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/big-2530142_1280.jpg" alt="pizza">
+                        <!-- single-dishes-content Template-function -->
                         <div id="pizza-dishes"></div>
                     </div>
 
                     <div id="pasta">
                         <h2>Pasta</h2>
-                        <img id="dishes-img" src="./assets/img/noodles-7241213_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/noodles-7241213_1280.jpg" alt="pasta">
+                        <!-- single-dishes-content Template-function -->
                         <div id="pasta-dishes"></div>
                     </div>
 
                     <div id="burger">
                         <h2>Burger</h2>
-                        <img id="dishes-img" src="./assets/img/hamburger-4103070_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/hamburger-4103070_1280.jpg" alt="burger">
+                        <!-- single-dishes-content Template-function -->
                         <div id="burger-dishes"></div>
                     </div>
 
                     <div id="dessert">
                         <h2>Dessert</h2>
-                        <img id="dishes-img" src="./assets/img/nougat-3078581_1280.jpg" alt="">
+                        <img id="dishes-img" src="./assets/img/nougat-3078581_1280.jpg" alt="dessert">
+                        <!-- single-dishes-content Template-function -->
                         <div id="dessert-dishes"></div>
                     </div>
                     <div class="basket-container-overlay">
-                        <button id="basket-container-overlay-btn" onclick="openBasketOverlay()" class="basket-container-overlay-btn" >Dein Warenkorb</button>
+                        <button id="basket-container-overlay-btn" onclick="openBasketOverlay()"
+                            class="basket-container-overlay-btn">Dein Warenkorb</button>
                     </div>
                 </div>
             </div>
@@ -116,6 +126,7 @@
                     <button onclick="changeFromDeliveryToPickUp()" id="pickup" class=""><img
                             src="./assets/icons/location.png" alt="pickup">Abholung</button>
                 </div>
+                <!-- selected dishes in basket - template function -->
                 <div id="dishes-selected" class="dishes-selected"></div>
 
                 <div id="basket-starter" class="basket-starter">
@@ -123,7 +134,9 @@
                     <h2>Fülle deinen Warenkorb</h2>
                     <span>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
                 </div>
+
                 <div class="line"></div>
+
                 <div id="total-order-overview" class="d_none">
 
                     <div>
@@ -145,13 +158,11 @@
 
             </div>
         </aside>
-
     </main>
-
+    <!-- Footer -->
     <footer id="footer">
         Alex Schöfer - Developer Akademie
     </footer>
 </body>
 
 </html>
-

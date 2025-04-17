@@ -1,7 +1,7 @@
-// Collection Dishes
+// Collection Dishes structure --> menuCategory --> single dishes (name, price, description, amount)
 
 let menuDishes = {
-    //menu-Categorie
+    //menuCategory
     "appetizers":[
         {
             "name": "Bruschetta",
@@ -28,7 +28,7 @@ let menuDishes = {
             "amount": 0
         },
     ],
-    //menu-Categorie
+    //menuCategory
     "salads": [
         {
             "name": "Insalata Mista",
@@ -55,7 +55,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
-    //menu-Categorie
+     //menuCategory
     "pizza":[
         {
             "name": "Pizza Funghi",
@@ -72,7 +72,7 @@ let menuDishes = {
         {
             "name": "Pizza Divalo",
             "price": 11.80,
-            "description": "Tomatensauce, Käse und Salami und Jalapenos ( Scharf! )",
+            "description": "Tomatensauce, Käse und Salami und Jalapenos (scharf!)",
             "amount": 0
         },
         {
@@ -82,7 +82,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
-    //menu-Categorie
+    //menuCategory
     "pasta":[
         {
             "name": "Spaghetti Napoli",
@@ -109,7 +109,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
-    //menu-Categorie
+     //menuCategory
     "burger": [
         {
             "name": "Cheeseburger",
@@ -136,7 +136,7 @@ let menuDishes = {
             "amount": 0
         }
     ],
-    //menu-Categorie
+     //menuCategory
     "desserts": [
         {
             "name": "Warmes Schokotörtchen",

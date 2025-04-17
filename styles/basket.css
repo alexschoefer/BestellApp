@@ -21,6 +21,10 @@
   gap: 20px;
 }
 
+#basket-starter span {
+margin: 10px;
+}
+
 #basket-img {
   width: 32px;
   height: 32px;
@@ -174,14 +178,14 @@
 }
 
 .basket-container-overlay-btn {
-    background-color: rgb(237, 142, 63);
-    border-radius: 24px;
-    color: white;
-    width: calc(100vh - 40px);
-    position: fixed;
-    border: none;
-    bottom: 10px;
-    padding: 8px 0;
-    margin-bottom: 40px;
-    display: none;
+  background-color: rgb(237, 142, 63);
+  border-radius: 24px;
+  color: white;
+  width: calc(100vh - 40px);
+  position: fixed;
+  border: none;
+  bottom: 10px;
+  padding: 8px 0;
+  margin-bottom: 40px;
+  display: none;
 }

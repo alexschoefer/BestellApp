@@ -1,6 +1,6 @@
 function getDishesSingleTemplate(indexDishes,menuCategories) {
     return `
-    <div class="single-dish-selection space-between">
+    <div class="single-dish-selection single-dish">
         <div class="dish-information">
             <h3>${menuDishes[menuCategories][indexDishes].name}</h3>
             <p>${menuDishes[menuCategories][indexDishes].description}</p>

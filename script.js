@@ -1,6 +1,10 @@
+// empty basket
 let basket = [];
 
+// Standard delivery = true / pickUp = false
 let delivery = true;
+// deliveryCosts Standard 5
+let deliveryCosts = 5;
 
 function init() {
     renderAppetizers();
@@ -11,6 +15,7 @@ function init() {
     renderDesserts();
 }
 
+// Template functions rendering Dishes 
 function renderAppetizers() {
     let appetizersRef = document.getElementById('appetizers-dishes');
     appetizersRef.innerHTML = "";
@@ -65,6 +70,8 @@ function renderDesserts() {
     }
 }
 
+//Check whether food is already in the shopping cart => yes => to be uploaded otherwise add to basket
+
 function addSelectedDishToBasket(indexDishes, menuCategories) {
     if (menuDishes[menuCategories][indexDishes].amount == 0) {
         basket.push({ menuCategorie: menuCategories, index: indexDishes });
@@ -74,6 +81,7 @@ function addSelectedDishToBasket(indexDishes, menuCategories) {
 
     increaseOrderQuantity(indexDishes, menuCategories);
     showTotalPrice();
+  
 }
 
 function renderBasket() {
@@ -85,7 +93,7 @@ function renderBasket() {
         let indexDishes = basket[indexBasket].index;
         let menuCategories = basket[indexBasket].menuCategorie;
         basketRef.innerHTML += getBasketTemplate(indexDishes, menuCategories, indexBasket);
-        calucationTotalOrder(indexDishes, menuCategories);
+        calcuationTotalOrder(indexDishes, menuCategories);
     }
     getDeliveryCosts();
     subtotalPrice();
@@ -98,12 +106,15 @@ function trashDecreaseButtonBasket(indexDishes, menuCategories, indexBasket) {
     else if (menuDishes[menuCategories][indexDishes].amount == 1) {
         removeDishFromBasket(indexDishes, menuCategories, indexBasket);
     }
-    showTotalPrice();
 }
 
 function removeDishFromBasket(indexDishes, menuCategories, indexBasket) {
     menuDishes[menuCategories][indexDishes].amount = 0;
     basket.splice(indexBasket, 1);
+    if(basket.length === 0) {
+        document.getElementById('basket-starter').classList.remove('d_none');
+        document.getElementById('total-order-overview').classList.add('d_none');
+    }
     renderBasket();
 }
 
@@ -119,7 +130,7 @@ function decreaseOrderQuantity(indexDishes, menuCategories) {
     renderBasket();
 }
 
-function calucationTotalOrder(indexDishes, menuCategories) {
+function calcuationTotalOrder(indexDishes, menuCategories) {
     subtotal = subtotal + (menuDishes[menuCategories][indexDishes].price * menuDishes[menuCategories][indexDishes].amount);
 
 }
@@ -137,16 +148,11 @@ function subtotalPrice() {
 }
 
 function getDeliveryCosts() {
-    let getDeliveryCostsRef = document.getElementById('deliveryPrice');
-    let deliveryCosts = 5;
-    if (delivery === true) {
-        deliveryCosts = 5;
-    } else {
-        deliveryCosts = 0;
-    }
-    getDeliveryCostsRef.innerHTML = deliveryCosts.toFixed(2).replace(".", ",").concat(" €");
-    showTotalPrice(deliveryCosts);
+    const deliveryCostsRef = document.getElementById('deliveryPrice');
+    const deliveryCosts = delivery ? 5 : 0;
 
+    deliveryCostsRef.innerHTML = deliveryCosts.toFixed(2).replace(".", ",") + " €";
+    showTotalPrice(deliveryCosts);
 }
 
 function changeFromDeliveryToPickUp() {
@@ -173,7 +179,7 @@ function completeOrder() {
     document.getElementById('order-confirmation').classList.remove('d_none');
     document.getElementById('dishes-selected').classList.add('d_none');
     document.getElementById('total-order-overview').classList.add('d_none');
-
+    basketReset();    
 }
 
 function openBasketOverlay() {
@@ -188,4 +194,10 @@ function closeBasketOverlay() {
     document.getElementById('basket-container-overlay-btn').style.display = 'block';
     document.getElementById('main-content').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
+}
+
+function basketReset() {
+    basket = [];
+    subtotal = 0;
+    delivery = true;
 }
