@@ -111,49 +111,52 @@
         <!-- basket-content -->
         <aside class="basket-container" id="basket-container">
             <div class="basket">
-                <div class="basket-container-overlay-close-btn">
-                    <img onclick="closeBasketOverlay()" src="./assets/icons/close.png" alt="closeButton">
+                <div class="basket-container-overlay-close">
+                    <img class="basket-container-overlay-close-btn" onclick="closeBasketOverlay()" src="./assets/icons/close.png" alt="closeButton">
                 </div>
-                <h2>Warenkorb</h2>
-                <div id="order-confirmation" class="order-confirmation d_none">
-                    <h3>Bestellung erfolgreich abgeschlossen!</h3>
-                    <span>Wir schicken Dir in Kürze eine Bestätigung.</span>
-                </div>
-
-                <div id="delivery-pick-up-options" class="delivery-pick-up-options">
-                    <button onclick="changeFromPickUpToDelivery()" id="delivery" class="delivery-pickup-seletion"><img
-                            src="./assets/icons/fast-delivery.png" alt="delivery">Lieferung</button>
-                    <button onclick="changeFromDeliveryToPickUp()" id="pickup" class=""><img
-                            src="./assets/icons/location.png" alt="pickup">Abholung</button>
-                </div>
-                <!-- selected dishes in basket - template function -->
-                <div id="dishes-selected" class="dishes-selected"></div>
-
-                <div id="basket-starter" class="basket-starter">
-                    <img id="basket-img" src="./assets/img/basket.png" alt="basketImage">
-                    <h2>Fülle deinen Warenkorb</h2>
-                    <span>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
-                </div>
-
-                <div class="line"></div>
-
-                <div id="total-order-overview" class="d_none">
-
-                    <div>
-                        <span><b>Zwischensumme:</b></span>
-                        <span id="subtotal"></span>
+                <div class="basket-scroll-area">
+                    <h2>Warenkorb</h2>
+                    <div id="order-confirmation" class="order-confirmation d_none">
+                        <h3>Bestellung erfolgreich abgeschlossen!</h3>
+                        <span>Wir schicken Dir in Kürze eine Bestätigung.</span>
                     </div>
-                    <div>
-                        <span><b>Lieferkosten:</b></span>
-                        <span id="deliveryPrice"></span>
+    
+                    <div id="delivery-pick-up-options" class="delivery-pick-up-options">
+                        <button onclick="toggleDeliverySelection(true);" id="delivery" class="delivery-pickup-seletion"><img
+                                src="./assets/icons/fast-delivery.png" alt="delivery">Lieferung</button>
+                        <button onclick="toggleDeliverySelection(false);" id="pickup" class=""><img
+                                src="./assets/icons/location.png" alt="pickup">Abholung</button>
                     </div>
-                    <div>
-                        <span><b>Gesamtpreis:</b></span>
-                        <span id="total"></span>
+                    <!-- selected dishes in basket - template function -->
+                    <div id="dishes-selected" class="dishes-selected"></div>
+    
+                    <div id="basket-starter" class="basket-starter">
+                        <img id="basket-img" src="./assets/img/basket.png" alt="basketImage">
+                        <h2>Fülle deinen Warenkorb</h2>
+                        <span>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
                     </div>
-                    <button onclick="completeOrder()" id="send-order-button" type="submit">
-                        <h3>Bestellung abschließen</h3>
-                    </button>
+                
+                    <div class="line"></div>
+    
+                    <div id="total-order-overview" class="d_none">
+    
+                        <div>
+                            <span><b>Zwischensumme:</b></span>
+                            <span id="subtotal"></span>
+                        </div>
+                        <div>
+                            <span><b>Lieferkosten:</b></span>
+                            <span id="deliveryPrice"></span>
+                        </div>
+                        <div>
+                            <span><b>Gesamtpreis:</b></span>
+                            <span id="total"></span>
+                        </div>
+                        <button onclick="completeOrder()" id="send-order-button" type="submit">
+                            <h3>Bestellung abschließen</h3>
+                        </button>
+                    </div>
+
                 </div>
 
             </div>

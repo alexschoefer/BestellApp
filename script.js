@@ -1,76 +1,25 @@
-// empty basket
 let basket = [];
 
-// Standard delivery = true / pickUp = false
-let delivery = true;
-// deliveryCosts Standard 5
 let deliveryCosts = 5;
+let isDelivery = true;
 
 function init() {
-    renderAppetizers();
-    renderSalads();
-    renderPizza();
-    renderPasta();
-    renderBurger();
-    renderDesserts();
+    renderMenu("appetizers", "appetizers-dishes");
+    renderMenu("salads", "salads-dishes");
+    renderMenu("pizza", "pizza-dishes");
+    renderMenu("pasta", "pasta-dishes");
+    renderMenu("burger", "burger-dishes");
+    renderMenu("desserts", "dessert-dishes");
 }
 
-// Template functions rendering Dishes 
-function renderAppetizers() {
-    let appetizersRef = document.getElementById('appetizers-dishes');
-    appetizersRef.innerHTML = "";
+function renderMenu(menuCategories, indexDishesID) {
+    let renderMenuRef = document.getElementById(indexDishesID);
+    renderMenuRef.innerHTML = "";
 
-    for (let indexDishes = 0; indexDishes < menuDishes.appetizers.length; indexDishes++) {
-        appetizersRef.innerHTML += getDishesSingleTemplate(indexDishes, "appetizers");
+    for (let indexDishes = 0; indexDishes < menuDishes[menuCategories].length; indexDishes++) {
+        renderMenuRef.innerHTML += getDishesSingleTemplate(indexDishes, menuCategories);
     }
 }
-
-function renderSalads() {
-    let saladsRef = document.getElementById('salads-dishes');
-    saladsRef.innerHTML = "";
-
-    for (let indexDishes = 0; indexDishes < menuDishes.appetizers.length; indexDishes++) {
-        saladsRef.innerHTML += getDishesSingleTemplate(indexDishes, "salads");
-    }
-}
-
-function renderPizza() {
-    let pizzaRef = document.getElementById('pizza-dishes');
-    pizzaRef.innerHTML = "";
-
-    for (let indexDishes = 0; indexDishes < menuDishes.pizza.length; indexDishes++) {
-        pizzaRef.innerHTML += getDishesSingleTemplate(indexDishes, "pizza");
-    }
-}
-
-function renderPasta() {
-    let pastaRef = document.getElementById('pasta-dishes');
-    pastaRef.innerHTML = "";
-
-    for (let indexDishes = 0; indexDishes < menuDishes.pasta.length; indexDishes++) {
-        pastaRef.innerHTML += getDishesSingleTemplate(indexDishes, "pasta");
-    }
-}
-
-function renderBurger() {
-    let burgerRef = document.getElementById('burger-dishes');
-    burgerRef.innerHTML = "";
-
-    for (let indexDishes = 0; indexDishes < menuDishes.burger.length; indexDishes++) {
-        burgerRef.innerHTML += getDishesSingleTemplate(indexDishes, "burger");
-    }
-}
-
-function renderDesserts() {
-    let dessertsRef = document.getElementById('dessert-dishes');
-    dessertsRef.innerHTML = "";
-
-    for (let indexDishes = 0; indexDishes < menuDishes.desserts.length; indexDishes++) {
-        dessertsRef.innerHTML += getDishesSingleTemplate(indexDishes, "desserts");
-    }
-}
-
-//Check whether food is already in the shopping cart => yes => to be uploaded otherwise add to basket
 
 function addSelectedDishToBasket(indexDishes, menuCategories) {
     if (menuDishes[menuCategories][indexDishes].amount == 0) {
@@ -78,24 +27,24 @@ function addSelectedDishToBasket(indexDishes, menuCategories) {
         document.getElementById('basket-starter').classList.add('d_none');
         document.getElementById('total-order-overview').classList.remove('d_none');
     }
-
     increaseOrderQuantity(indexDishes, menuCategories);
-    showTotalPrice();
-  
+    showTotalPrice(deliveryCosts);
+
 }
 
-function renderBasket() {
+function renderBasket(isDelivery) {
     let basketRef = document.getElementById('dishes-selected');
     basketRef.innerHTML = "";
     subtotal = 0;
+
 
     for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
         let indexDishes = basket[indexBasket].index;
         let menuCategories = basket[indexBasket].menuCategorie;
         basketRef.innerHTML += getBasketTemplate(indexDishes, menuCategories, indexBasket);
-        calcuationTotalOrder(indexDishes, menuCategories);
+        calculationTotalOrder(indexDishes, menuCategories);
     }
-    getDeliveryCosts();
+    getDeliveryCosts(isDelivery);
     subtotalPrice();
 }
 
@@ -111,26 +60,26 @@ function trashDecreaseButtonBasket(indexDishes, menuCategories, indexBasket) {
 function removeDishFromBasket(indexDishes, menuCategories, indexBasket) {
     menuDishes[menuCategories][indexDishes].amount = 0;
     basket.splice(indexBasket, 1);
-    if(basket.length === 0) {
+    if (basket.length === 0) {
         document.getElementById('basket-starter').classList.remove('d_none');
         document.getElementById('total-order-overview').classList.add('d_none');
     }
-    renderBasket();
+    renderBasket(isDelivery);
 }
 
 function increaseOrderQuantity(indexDishes, menuCategories) {
     menuDishes[menuCategories][indexDishes].amount++;
     showTotalPrice();
-    renderBasket();
+    renderBasket(isDelivery);
 
 }
 
 function decreaseOrderQuantity(indexDishes, menuCategories) {
     menuDishes[menuCategories][indexDishes].amount--;
-    renderBasket();
+    renderBasket(isDelivery);
 }
 
-function calcuationTotalOrder(indexDishes, menuCategories) {
+function calculationTotalOrder(indexDishes, menuCategories) {
     subtotal = subtotal + (menuDishes[menuCategories][indexDishes].price * menuDishes[menuCategories][indexDishes].amount);
 
 }
@@ -147,30 +96,19 @@ function subtotalPrice() {
     subTotalPriceRef.innerHTML = subtotal.toFixed(2).replace(".", ",").concat(" €");
 }
 
-function getDeliveryCosts() {
+function getDeliveryCosts(isDelivery) {
     const deliveryCostsRef = document.getElementById('deliveryPrice');
-    const deliveryCosts = delivery ? 5 : 0;
-
+    const deliveryCosts = isDelivery ? 5 : 0;
+    console.log(isDelivery);
+    
     deliveryCostsRef.innerHTML = deliveryCosts.toFixed(2).replace(".", ",") + " €";
     showTotalPrice(deliveryCosts);
 }
 
-function changeFromDeliveryToPickUp() {
-    if (basket.length > 0) {
-        delivery = false;
-        document.getElementById('pickup').classList.add('delivery-pickup-seletion')
-        document.getElementById('delivery').classList.remove('delivery-pickup-seletion');
-        getDeliveryCosts();
-    }
-}
-
-function changeFromPickUpToDelivery() {
-    if (basket.length > 0) {
-        delivery = true;
-        document.getElementById('pickup').classList.remove('delivery-pickup-seletion')
-        document.getElementById('delivery').classList.add('delivery-pickup-seletion');
-        getDeliveryCosts();
-    }
+function toggleDeliverySelection(isDelivery) {
+    document.getElementById('pickup').classList.toggle('delivery-pickup-seletion', !isDelivery);
+    document.getElementById('delivery').classList.toggle('delivery-pickup-seletion', isDelivery);
+    renderBasket(isDelivery);
 }
 
 function completeOrder() {
@@ -179,7 +117,7 @@ function completeOrder() {
     document.getElementById('order-confirmation').classList.remove('d_none');
     document.getElementById('dishes-selected').classList.add('d_none');
     document.getElementById('total-order-overview').classList.add('d_none');
-    basketReset();    
+    basketReset();
 }
 
 function openBasketOverlay() {
@@ -193,11 +131,11 @@ function closeBasketOverlay() {
     document.getElementById('basket-container').style.display = 'none';
     document.getElementById('basket-container-overlay-btn').style.display = 'block';
     document.getElementById('main-content').style.display = 'block';
-    document.getElementById('footer').style.display = 'block';
+    document.getElementById('footer').style.display = 'flex';
 }
 
 function basketReset() {
     basket = [];
     subtotal = 0;
-    delivery = true;
+    isDelivery = true;
 }
