@@ -21,7 +21,7 @@ function renderMenu(menuCategories, indexDishesID) {
     }
 }
 
-function addSelectedDishToBasket(indexDishes, menuCategories) {
+function addSelectedDishToBasket(indexDishes, menuCategories) {    
     if (menuDishes[menuCategories][indexDishes].amount == 0) {
         basket.push({ menuCategorie: menuCategories, index: indexDishes });
         document.getElementById('basket-starter').classList.add('d_none');
@@ -29,7 +29,6 @@ function addSelectedDishToBasket(indexDishes, menuCategories) {
     }
     increaseOrderQuantity(indexDishes, menuCategories);
     showTotalPrice(deliveryCosts);
-
 }
 
 function renderBasket(isDelivery) {
@@ -53,7 +52,7 @@ function trashDecreaseButtonBasket(indexDishes, menuCategories, indexBasket) {
         decreaseOrderQuantity(indexDishes, menuCategories);
     }
     else if (menuDishes[menuCategories][indexDishes].amount == 1) {
-        removeDishFromBasket(indexDishes, menuCategories, indexBasket);
+        removeDishFromBasket(indexDishes, menuCategories, indexBasket, isDelivery);
     }
 }
 
@@ -64,7 +63,7 @@ function removeDishFromBasket(indexDishes, menuCategories, indexBasket) {
         document.getElementById('basket-starter').classList.remove('d_none');
         document.getElementById('total-order-overview').classList.add('d_none');
     }
-    renderBasket(isDelivery);
+    renderBasket(isDelivery);   
 }
 
 function increaseOrderQuantity(indexDishes, menuCategories) {
@@ -97,15 +96,14 @@ function subtotalPrice() {
 }
 
 function getDeliveryCosts(isDelivery) {
-    const deliveryCostsRef = document.getElementById('deliveryPrice');
-    const deliveryCosts = isDelivery ? 5 : 0;
-    console.log(isDelivery);
-    
+    let deliveryCostsRef = document.getElementById('deliveryPrice');
+    let deliveryCosts = isDelivery ? 5 : 0; 
     deliveryCostsRef.innerHTML = deliveryCosts.toFixed(2).replace(".", ",") + " €";
     showTotalPrice(deliveryCosts);
 }
 
-function toggleDeliverySelection(isDelivery) {
+function toggleDeliverySelection(newIsDelivery) {
+    isDelivery = newIsDelivery; 
     document.getElementById('pickup').classList.toggle('delivery-pickup-seletion', !isDelivery);
     document.getElementById('delivery').classList.toggle('delivery-pickup-seletion', isDelivery);
     renderBasket(isDelivery);
