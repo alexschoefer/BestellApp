@@ -1,4 +1,5 @@
 let basket = [];
+let subtotal = 0;
 
 let deliveryCosts = 5;
 let isDelivery = true;
@@ -23,12 +24,18 @@ function renderMenu(menuCategories, indexDishesID) {
 
 function addSelectedDishToBasket(indexDishes, menuCategories) {    
     if (menuDishes[menuCategories][indexDishes].amount == 0) {
-        basket.push({ menuCategorie: menuCategories, index: indexDishes });
-        document.getElementById('basket-starter').classList.add('d_none');
-        document.getElementById('total-order-overview').classList.remove('d_none');
+        basket.push({ menuCategory: menuCategories, index: indexDishes });
     }
     increaseOrderQuantity(indexDishes, menuCategories);
     showTotalPrice(deliveryCosts);
+}
+
+function showOrderView() {
+    document.getElementById('delivery-pick-up-options').classList.remove('d_none');
+    document.getElementById('basket-starter').classList.add('d_none');
+    document.getElementById('total-order-overview').classList.remove('d_none');
+    document.getElementById('order-confirmation').classList.add('d_none');
+    document.getElementById('dishes-selected').classList.remove('d_none');
 }
 
 function renderBasket(isDelivery) {
@@ -39,7 +46,7 @@ function renderBasket(isDelivery) {
 
     for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
         let indexDishes = basket[indexBasket].index;
-        let menuCategories = basket[indexBasket].menuCategorie;
+        let menuCategories = basket[indexBasket].menuCategory;
         basketRef.innerHTML += getBasketTemplate(indexDishes, menuCategories, indexBasket);
         calculationTotalOrder(indexDishes, menuCategories);
     }
@@ -110,12 +117,18 @@ function toggleDeliverySelection(newIsDelivery) {
 }
 
 function completeOrder() {
+    basketReset();
+    orderConfirmation();
+    renderBasket(isDelivery);
+    basket = [];
+}
+
+function orderConfirmation() {
     document.getElementById('basket-starter').classList.add('d_none');
     document.getElementById('delivery-pick-up-options').classList.add('d_none');
     document.getElementById('order-confirmation').classList.remove('d_none');
     document.getElementById('dishes-selected').classList.add('d_none');
     document.getElementById('total-order-overview').classList.add('d_none');
-    basketReset();
 }
 
 function openBasketOverlay() {
@@ -133,7 +146,10 @@ function closeBasketOverlay() {
 }
 
 function basketReset() {
-    basket = [];
-    subtotal = 0;
     isDelivery = true;
+    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+        let indexDishes = basket[indexBasket].index;
+        let menuCategories = basket[indexBasket].menuCategory;
+        menuDishes[menuCategories][indexDishes].amount = 0;
+    }
 }

@@ -6,7 +6,7 @@ function getDishesSingleTemplate(indexDishes,menuCategories) {
             <p>${menuDishes[menuCategories][indexDishes].description}</p>
             <div class="dish-price">${menuDishes[menuCategories][indexDishes].price.toFixed(2).replace(".",",").concat(" €")}</div>
         </div>
-        <div><img onclick="addSelectedDishToBasket(${indexDishes},'${menuCategories}')" id="add-to-Basket"src="./assets/icons/add-to-basket.png" alt="add-to-basket"></div>
+        <div><img onclick="addSelectedDishToBasket(${indexDishes},'${menuCategories}'); showOrderView()" id="add-to-Basket"src="./assets/icons/add-to-basket.png" alt="add-to-basket"></div>
     </div>    
         `
 }
